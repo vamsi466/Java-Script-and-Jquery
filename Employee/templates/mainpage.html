@@ -1,0 +1,77 @@
+<html ng-app ="DetailsApp" >
+	<head>
+	
+		<!--title -->
+	    <title>
+        	EmpoyeeDetailsList
+        </title>
+	</head>
+	
+	<!--importing all the styles required-->
+	<style type="text/css">     
+ 
+		@import url("../CSS/EmployeelistCSS.css");
+			
+	</style>
+	<body style="text-align:center" ng-controller = "employeeAppCtrl">
+	
+		<div class="header">
+			<input type="file" class="button1" style="float:left" accept=".csv" id = "file">
+			<input type = "button"class="button1" value = "ImportFile" ng-click="import()">
+			<input type="button" class="button1" ng-click = "add_Employee()" value= "AddEmployee">
+			<input type="button" class="button1" ng-click = "export()" style="float:right" value = "ExportFile">
+			
+		</div>
+		<div ng-hide="EmpData">
+			<table class="testTable" style="margin-top:30px">
+				<tr>
+					<th class = 'tableheading'><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/></th>
+					<th class = 'tableheading'>ID.No</th>
+					<th class = 'tableheading'>Name</th>
+					<th class = 'tableheading'>Designation</th>
+					<th class = 'tableheading'>Experience</th>
+					<th class = 'tableheading'>Salary</th>
+				</tr>
+				<tr ng-repeat= "employee in employeeDataList" >
+					<td><input type="checkbox" ng-model="employee.selected" ng-checked="ischecked"/></td>
+					<td class = 'tablerow'>{{employee.Id}}</td>
+					<td class = 'tablerow'>{{employee.name}}</td>
+					<td class = 'tablerow'>{{employee.des}}</td>
+					<td class = 'tablerow'>{{employee.exp}}</td>
+					<td class = 'tablerow'>{{employee.sal}}</td>
+				</tr>
+			</table>
+			
+			<div style="padding-top:20px">
+				<input type="button" class="button1" value="Edit" ng-click="editDetails()">
+				<input type="button" class="button1"value="Delete" ng-click="deleteRecord()">
+			</div>
+		</div>
+		<div ng-show = "EmpData" >
+			<input type="text" placeholder = "ID" ng-model="Emp.Id"><br>
+			<input type="text" placeholder = "Name" ng-model="Emp.name"><br>
+			<input type="text" placeholder = "Designation" ng-model="Emp.des"><br>
+			<input type="text" placeholder = "Experience" ng-model="Emp.exp"><br>
+			<input type="text" placeholder = "Salary" ng-model="Emp.sal"><br>
+			<input type = "button" value = "Add" ng-click="addNewEmployee(Emp)">
+			<input type = "button" value = "back" ng-click="Done()">
+		</div>
+		
+		<div ng-show = "EmpData1" >
+			<input type="text" placeholder = "ID" ng-model="Emp.Id"><br>
+			<input type="text" placeholder = "Name" ng-model="Emp.name"><br>
+			<input type="text" placeholder = "Designation" ng-model="Emp.des"><br>
+			<input type="text" placeholder = "Experience" ng-model="Emp.exp"><br>
+			<input type="text" placeholder = "Salary" ng-model="Emp.sal"><br>
+			<input type = "button" value = "Save" ng-click="changeEmployeeDetails()">
+		</div>
+		
+		<!--scripts are included-->
+		<script src="../JS/angular.min.js"></script>
+		<script src="../JS/employeeList.js"></script>
+	</body>
+</html>
+
+
+		
+	

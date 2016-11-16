@@ -7,19 +7,25 @@
 	</head>
 
 	<body>
-		
+
 		<p id="initial"></p>
-		
-		
+		<input type="button" id="add" value="Add Numbers">
+
 	</body>
 	<script>
-	
+
 	 $(document).ready(function(){
 		var initialarray = [1,2,3,4];
 		var arraygiven = [8,3,5,6];
-		 
 		$("#initial").text(initialarray);
-		 
+
+		$("#add").click(function(){
+     var addElement=prompt("");
+     arraygiven.push(addElement);
+     });
+
+		$("#initial").text(initialarray);
+
 		setTimeout(function(){
 			ngRepeat()
 		}, 2000);
@@ -27,23 +33,23 @@
 			jQuery.each( arraygiven, function( i, val ) {
 			  compare(val)
 			});
-		 
+
 			function compare(value){
 			var flag=true;
 			  jQuery.each( initialarray, function( i, val ) {
 				  if(val==value){
 					flag=false;
 				  }
-				 
+
 			  });
 			   if(flag){
 					$("#initial").append(","+value);
 				}
-			  
+
 			};
 		}
-		
+
 	});
-	
+
 	</script>
 </html>
