@@ -1,0 +1,11 @@
+img {
+ height : 400px!important;
+ width: 600px!important;
+}
+.carousel-caption{
+	color:gold!important;
+	font-size: 20px!important;
+}
+.videopadding{
+	padding:10em;
+}
