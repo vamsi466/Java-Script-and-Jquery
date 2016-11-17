@@ -26,3 +26,15 @@
 .rowspace{
   margin-top:40px
 }
+.borderleft{
+	border-left:none;
+}
+.bordertop{
+	border-top:none;
+}
+.borderright{
+	border-right:none;
+}
+.borderbottom{
+	border-bottom:none;
+}
