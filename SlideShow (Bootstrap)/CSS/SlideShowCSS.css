@@ -9,3 +9,20 @@ img {
 .videopadding{
 	padding:10em;
 }
+
+.row-gap{
+	padding-top: 50px;
+}
+
+.video-mask{
+	position: absolute;
+    width:200px;
+    height: 150px;
+}
+
+.video-card{
+	position: relative;
+	margin-top: 10px;
+  margin-left: 10px;
+  
+}

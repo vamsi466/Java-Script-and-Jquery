@@ -29,5 +29,39 @@ $(document).ready(function()
     });
 
 
+/*Modal opening and closing and autoplay of that video*/
+function clearModal(){
+  $(".modal-body").empty();
+
+}
+
+$("document").delegate('.video-mask','click',function(e){
+  var iFrame = $(e.target).siblings().clone();
+  console.log("iFrame")
+
+  iFrame.attr("height","60%");
+  var url = $(iFrame).attr('src')+"?autoplay=1";
+  iFrame.attr("src",url);
+
+  $(".modal-body").html(iFrame);
+
+  $("#myModal").on('click',function(){
+    var isOpen;
+    setTimeout(function(){
+      isOpen = $("body").hasClass("modal-open");
+
+    },500);
+    setTimeout(function(){
+      if(!isOpen){
+        clearModal();
+      }
+
+    },550);
+  });
+
+});
+
+$(".close").on('click',clearModal);
+$("#closeVideo").on('click',clearModal);
 
 });
