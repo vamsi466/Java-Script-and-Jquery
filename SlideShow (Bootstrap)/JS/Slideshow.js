@@ -1,5 +1,8 @@
 $(document).ready(function()
 {
+  // $(".video-mask1").click(function(e){
+  //   alert("hello");
+  // })
     $(".home").click(function(){
         $.ajax({url: "./Templates/home.html", success: function(result)
 		{
@@ -9,22 +12,27 @@ $(document).ready(function()
     });
 
 	$(".cricket").click(function(){
-        $.ajax({url: "Templates/cricket.html", success: function(result)
+        $.ajax({url: "./Templates/cricket.html", success: function(result)
 		{
             $(".loader").html(result);
+            $(".dynamicSrc").attr("src", "JS/Slideshow.js");
         }});
+
     });
 	$(".painting").click(function(){
         $.ajax({url: "Templates/painting.html", success: function(result)
+
 		{
 
             $(".loader").html(result);
+            $(".dynamicSrc").attr("src", "JS/Slideshow.js");
         }});
     });
 	$(".chess").click(function(){
         $.ajax({url: "Templates/chess.html", success: function(result)
 		{
             $(".loader").html(result);
+            $(".dynamicSrc").attr("src", "JS/Slideshow.js");
         }});
     });
 
@@ -35,17 +43,20 @@ function clearModal(){
 
 }
 
-$("document").delegate('.video-mask','click',function(e){
+$(".video-mask").click(function(e){
   var iFrame = $(e.target).siblings().clone();
-  console.log("iFrame")
 
-  iFrame.attr("height","60%");
+  //iFrame.attr("height","60%");
+  iFrame.attr({
+      height:"60%",
+      width:"100%"
+  });
   var url = $(iFrame).attr('src')+"?autoplay=1";
   iFrame.attr("src",url);
 
   $(".modal-body").html(iFrame);
 
-  $("#myModal").on('click',function(){
+  $("#myModal").click(function(){
     var isOpen;
     setTimeout(function(){
       isOpen = $("body").hasClass("modal-open");
@@ -61,7 +72,7 @@ $("document").delegate('.video-mask','click',function(e){
 
 });
 
-$(".close").on('click',clearModal);
-$("#closeVideo").on('click',clearModal);
+$(".close").click(clearModal);
+$("#closeVideo").click(clearModal);
 
 });
