@@ -1,9 +1,11 @@
 <html>
   <head>
-     <title>
-       TIC TAC
-        </title>
+      <title>
+        TIC TAC
+      </title>
 
+      <!--including all the style which are external-->
+      <!--including bootstrap and jquery for using bootstrap css at required places-->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -13,34 +15,59 @@
 
   </head>
     <body>
-      <div class="row rowspace"  >
-        <div class="col-md-2 col-md-offset-4 player1 activeplayer"  >
-			<h4>Player1</h4>
+
+      <!--main/body content-->
+
+      <!--div in which both players divs are present -->
+      <!--these two player divs are toggeled between them based upon which player is active-->
+      <div class="row rowspace" >
+
+        <!--player1 div-->
+        <div class="col-md-2 col-md-offset-4 player1 activeplayer">
+			       <h4>Player1</h4>
         </div>
+
+        <!--player2-->
         <div class="col-md-2 player2" >
           <h4>Player2</h4>
         </div>
     </div>
+
+    <!--this is part of page where the game board is placed with "9" blocks -->
    <div class="row rowspace">
+
+
+       <!--first row with 3 blocks are designed using bootstrap by having some offset and coloum space-->
        <div >
          <div class="col-md-2 col-md-offset-3 activeblock borderleft bordertop ">clickme</div>
          <div  class="col-md-2 activeblock bordertop">clickme</div>
-		 <div  class="col-md-2 activeblock bordertop borderright">clickme</div>
-       </div>
-       <div >
+    		 <div  class="col-md-2 activeblock bordertop borderright">clickme</div>
+       </div><!--end of first row-->
+
+
+
+       <div>
+         <!--second row with 3 blocks are designed using bootstrap by having some offset and coloum space-->
          <div class="col-md-2 col-md-offset-3 activeblock borderleft ">clickme</div>
          <div  class="col-md-2 activeblock">clickme</div>
-		 <div  class="col-md-2 activeblock borderright">clickme</div>
-       </div>
-	   <div >
-         <div class="col-md-2 col-md-offset-3 activeblock borderbottom borderleft ">clickme</div>
-         <div  class="col-md-2 activeblock borderbottom ">clickme</div>
-		 <div  class="col-md-2 activeblock borderbottom borderright">clickme</div>
-       </div>
-     </div>
+    		 <div  class="col-md-2 activeblock borderright">clickme</div>
+       </div><!--end of second row-->
 
+
+	      <div >
+        <!--third row with 3 blocks are designed using bootstrap by having some offset and coloum space-->
+          <div class="col-md-2 col-md-offset-3 activeblock borderbottom borderleft ">clickme</div>
+          <div  class="col-md-2 activeblock borderbottom ">clickme</div>
+		      <div  class="col-md-2 activeblock borderbottom borderright">clickme</div>
+       </div><!--end of third row-->
+
+
+     </div><!--end of complete board-->
+
+
+     <!--including JS files-->
      <script src="JS/game.js"></script>
 
-    </body>
+   </body><!--end of body content-->
 
 </html>

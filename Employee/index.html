@@ -1,0 +1,109 @@
+<html ng-app ="DetailsApp" >
+	<head>
+
+		<!--title -->
+	    <title>
+        	EmpoyeeDetailsList
+        </title>
+	</head>
+
+	<!--importing all the styles required-->
+	<style type="text/css">
+
+		@import url("CSS/EmployeelistCSS.css");
+
+	</style>
+
+	<!--body content or main content-->
+	<body style="text-align:center" ng-controller = "employeeAppCtrl">
+
+		<!--header of the page with all the required buttons-->
+		<div class="header">
+
+			<!--button to choose the file of only CSV format-->
+			<input type="file" class="button1" style="float:left" accept=".csv" id = "file">
+
+			<!--button to import the file we got-->
+			<input type = "button"class="button1" value = "ImportFile" ng-click="import()">
+
+			<!--button to add an employee with his details-->
+			<input type="button" class="button1" ng-click = "add_Employee()" value= "AddEmployee">
+
+			<!--button to export all the details edited or added as a CSV format-->
+			<input type="button" class="button1" ng-click = "export()" style="float:right" value = "ExportFile">
+		</div>
+
+
+		<!--employee details printed in the table format-->
+		<!--to hide this div when to add a new enmployee-->
+		<div ng-hide="EmpData">
+			<table class="testTable" style="margin-top:30px">
+				<tr>
+					<!--header row of the table-->
+
+					<!--checkbox selector which is used to delete and edit details described in further page-->
+					<th class = 'tableheading'><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/></th>
+					<th class = 'tableheading'>ID.No</th>
+					<th class = 'tableheading'>Name</th>
+					<th class = 'tableheading'>Designation</th>
+					<th class = 'tableheading'>Experience</th>
+					<th class = 'tableheading'>Salary</th>
+				</tr><!--closing header row-->
+
+				<!--using ng-repeat to print all the employee details which we got in the JSON format-->
+				<tr ng-repeat= "employee in employeeDataList" >
+					<td><input type="checkbox" ng-model="employee.selected" ng-checked="ischecked"/></td>
+					<td class = 'tablerow'>{{employee.Id}}</td>
+					<td class = 'tablerow'>{{employee.name}}</td>
+					<td class = 'tablerow'>{{employee.des}}</td>
+					<td class = 'tablerow'>{{employee.exp}}</td>
+					<td class = 'tablerow'>{{employee.sal}}</td>
+				</tr>
+			</table><!--end of the table-->
+
+			<div style="padding-top:20px">
+
+				<!--button to edit the details-->
+				<!--button to edit details of the individual employee record of whom checkbox is selected-->
+				<input type="button" class="button1" value="Edit" ng-click="editDetails()">
+
+				<!--button to delete details of the individual employee of whom checkbox is selected-->
+				<input type="button" class="button1"value="Delete" ng-click="deleteRecord()">
+			</div>
+		</div>
+
+		<!--a div which is displyed when to add a neew employee-->
+		<div ng-show = "EmpData" >
+
+			<!--details of the employee are given-->
+			<input type="text" placeholder = "ID" ng-model="Emp.Id"><br>
+			<input type="text" placeholder = "Name" ng-model="Emp.name"><br>
+			<input type="text" placeholder = "Designation" ng-model="Emp.des"><br>
+			<input type="text" placeholder = "Experience" ng-model="Emp.exp"><br>
+			<input type="text" placeholder = "Salary" ng-model="Emp.sal"><br>
+
+			<!--button to save the employee details whom we added-->
+			<input type = "button" value = "Add" ng-click="addNewEmployee(Emp)">
+
+			<!--after completing entering all the new employees and their details going to home/index page-->
+			<input type = "button" value = "back" ng-click="Done()">
+		</div>
+
+
+		<!--a div in which employee details is edited-->
+		<div ng-show = "EmpData1" >
+
+			<!--editing the details of employee-->
+			<input type="text" placeholder = "ID" ng-model="Emp.Id"><br>
+			<input type="text" placeholder = "Name" ng-model="Emp.name"><br>
+			<input type="text" placeholder = "Designation" ng-model="Emp.des"><br>
+			<input type="text" placeholder = "Experience" ng-model="Emp.exp"><br>
+			<input type="text" placeholder = "Salary" ng-model="Emp.sal"><br>
+			<input type = "button" value = "Save" ng-click="changeEmployeeDetails()">
+		</div>
+
+		<!--scripts are included-->
+		<script src="JS/angular.min.js"></script>
+		<script src="JS/employeeList.js"></script>
+	</body>
+</html>
